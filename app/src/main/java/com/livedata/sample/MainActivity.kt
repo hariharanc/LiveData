@@ -1,6 +1,7 @@
 package com.livedata.sample
 
 import android.os.Bundle
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -19,6 +20,7 @@ class MainActivity : AppCompatActivity(), ConvertListenr {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);
         setContentView(R.layout.activity_main)
         liveDataViewModel = ViewModelProviders.of(this).get(LiveDataViewModel::class.java)
         liveDataViewModel.setListener(this)
